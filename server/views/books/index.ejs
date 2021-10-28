@@ -25,7 +25,7 @@
                 <tbody>
                 <!-- Template Row -->
                 <% for (let count = 0; count < books.length; count++) { %>
-                <tr class="d-flex">
+                <tr>
                   <td class="text-center col-2"><%= books[count].Title %></td>
                   <td class="text-center col-2">$<%= books[count].Price %></td>
                   <td class="text-center col-2"><%= books[count].Author %></td>
@@ -35,10 +35,10 @@
                     <!-- ------------------------ -->
                     <!-- ADD the EDIT BUTTON HERE -->
                     <!-- ------------------------ -->
-                    <a href="/books/edit/<%= books[count]._id %>" class="btn btn-info btn-sm">
+                    <a href="/books/edit" class="btn btn-info btn-sm">
                       <i class="fa fa-pencil"></i> Edit</a>
                   </td>
-
+                  
                   <td class="text-center col-1">
                     <!-- ------------------------ -->
                     <!-- ADD the DELETE BUTTON HERE -->
@@ -51,7 +51,7 @@
               </tbody>
             </table>
           </div>
-           <div class="col-md-offset-1 col-md-10 text-center">
+          <div class="col-md-offset-1 col-md-10 text-center">
             <ul class="pagination pagination-lg pager" id="myPager"></ul>
           </div>
         </div>
