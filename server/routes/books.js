@@ -72,7 +72,7 @@ router.get('/edit/:id', (req, res, next) => {
     else
     {
       //show the edit view
-      res.render('books/details', {title: 'Edit Book', books: bookToEdit})      
+      res.render('books/details', {title: 'Edit Book', books: bookToEdit})  
     }
   });
 });
@@ -87,10 +87,10 @@ router.post('/edit/:id', (req, res, next) => {
 
     let updatedBook = book({
       "_id": id,
-      "title": req.body.title,
-      "price": req.body.price,
-      "author": req.body.author,
-      "genre": req.body.genre
+      "Title": req.body.title,
+      "Price": req.body.price,
+      "Author": req.body.author,
+      "Genre": req.body.genre
     });
 
     book.updateOne({_id: id}, updatedBook, (err) => {
