@@ -1,3 +1,5 @@
+// COMP229-005-F2021-MidTerm/ ManYoung Oh/ 301161472
+
 // modules required for routing
 let express = require('express');
 const { isEmptyObject } = require('jquery');
@@ -22,6 +24,7 @@ router.get('/', (req, res, next) => {
 });
 
 //  GET the Book Details page in order to add a new Book
+// when '/add' requested, it respond to route to details.ejs for adding collection
 router.get('/add', (req, res, next) => {
   let initialPage = book();
   res.render('books/details', {title: 'Add Book', books: initialPage});
@@ -33,6 +36,8 @@ router.post('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    // initicalize new book collection by data input following variables
+    // issuing error, then display error and session end. Otherwise, return to '/books' page
     let newBook = book({
       "Title": req.body.title,
       "Price": req.body.price,
@@ -62,6 +67,7 @@ router.get('/edit/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    // recognize selected ID, then route to 'books/details' for editting
     let id = req.params.id;
     book.findById(id, (err, bookToEdit) =>{
     if(err)
@@ -83,6 +89,8 @@ router.post('/edit/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    // based on the existing Id with variables, it allows to edit the value of variables.
+    // issuing error, then display error and session end. Otherwise, return to '/books' page
     let id = req.params.id;
 
     let updatedBook = book({
@@ -113,6 +121,7 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    // it removes the selectd collection by its Id
     let id = req.params.id;
 
     book.remove({_id: id}, (err) => {

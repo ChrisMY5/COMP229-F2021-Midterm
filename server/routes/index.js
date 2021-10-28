@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
   res.render('content/index', {
     title: 'Home',
     books: ''
-   });
+  });
 });
 
 module.exports = router;
